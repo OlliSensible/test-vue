@@ -1,22 +1,33 @@
 <template>
-  <div id="app">
-    <ButtonFirst>Click me</ButtonFirst>
+  <div :id="$style.app">
+    <h1> {{ title }}</h1>
+    <StarRating :rating = "3.4"/>
   </div>
 </template>
 
 <script>
 
-import ButtonFirst from './components/ButtonFirst.vue';
+import StarRating from './components/StarRating.vue';
 
 export default {
   name: 'App',
   components: {
-    ButtonFirst
+    StarRating
+  },
+  computed: {
+    title() {
+      return `Amount of clicks: ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+    increment() {
+      this.amountOfClicks += 1
+    }
   }
 }
 </script>
 
-<style>
+<style module>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
