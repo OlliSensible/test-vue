@@ -47,7 +47,6 @@ export default {
     imgSrc: {
       type: String,
       default: '',
-      kf
     },
   },
   methods: {
