@@ -1,27 +1,38 @@
 <template>
   <div :id="$style.app">
-    <h1> {{ title }}</h1>
-    <StarRating :rating = "3.4"/>
+    <ApartmentsList :items="apartments" />
   </div>
 </template>
 
 <script>
 
-import StarRating from './components/StarRating.vue';
+import ApartmentsList from './components/apartment/ApartmentsList.vue';
+import apartments from './components/apartment/apartments';
 
 export default {
   name: 'App',
   components: {
-    StarRating
+    ApartmentsList
   },
-  computed: {
-    title() {
-      return `Amount of clicks: ${this.amountOfClicks}`
-    }
-  },
-  methods: {
-    increment() {
-      this.amountOfClicks += 1
+  data() {
+    return {
+      apartments,
+      apartment: {
+          id: '5f689a2c09b16000e9a2f47b',
+          title: 'Delectus et iste.',
+          imgUrl: '../public/img/apartments/apartment-1.jpg',
+          descr: 'Debitis similique unde et eligendi sapiente in iure blanditiis distinctio. Cum nihil temporibus qui quam aut. Nesciunt qui eveniet eum quam voluptate numquam.',
+          rating: 3.3,
+          price: 1667,
+          location: {
+            city: 'Dnipro',
+          },
+          owner: {
+            name: 'Bobbi',
+            phone: '582-740-2926',
+            email: 'Pete_Carter53@hotmail.com',
+          },
+      },
     }
   }
 }
@@ -29,7 +40,7 @@ export default {
 
 <style module>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
